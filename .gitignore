@@ -1,15 +1,17 @@
-# Node modules
-node_modules/
-
-# Vite
-.vite/
-
-# VS Code settings
-.vscode/
-
-# ASP.NET build folders
+# .NET
 bin/
 obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
 
-# SQLite database files
+# React
+node_modules/
+build/
+
+# VS Code
+.vscode/
+
+# SQLite database
 *.db
