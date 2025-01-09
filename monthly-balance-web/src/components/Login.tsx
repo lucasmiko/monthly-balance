@@ -1,17 +1,20 @@
-import { Container, TextField, Button, Typography, Box } from '@mui/material';
-import { useState } from 'react';
-import loginBackground from '../assets/images/main-bg.jpg';
+// Login.tsx
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';  // Importando useNavigate
 import { useAuth } from '../context/AuthContext';
-import React from 'react';
+import { Container, TextField, Button, Typography, Box } from '@mui/material';
+import loginBackground from '../assets/images/main-bg.jpg';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useAuth();
+  const navigate = useNavigate(); // Usando o hook useNavigate
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await login(email, password);
+    await login(email, password);  // Faz o login
+    navigate('/dashboard');  // Redireciona para o dashboard após o login
   };
 
   return (

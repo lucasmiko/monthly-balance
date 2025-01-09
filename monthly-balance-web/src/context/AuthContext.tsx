@@ -1,3 +1,4 @@
+// AuthContext.tsx
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
@@ -22,7 +23,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const login = async (email: string, password: string) => {
-    const response = await axios.post('/api/auth/login', { email, password });
+    const response = await axios.post('http://localhost:5093/api/auth/login', { email, password });
     const { token } = response.data;
     localStorage.setItem('token', token);
     const decoded = jwtDecode(token);
