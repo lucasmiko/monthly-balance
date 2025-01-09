@@ -1,0 +1,15 @@
+.login-container {
+    @apply bg-white p-8 rounded-lg shadow-lg max-w-md w-full;
+  }
+  
+  .login-title {
+    @apply text-2xl font-bold mb-6 text-center text-primary;
+  }
+  
+  .login-input {
+    @apply w-full p-3 mb-4 border border-gray-300 rounded-lg;
+  }
+  
+  .login-button {
+    @apply w-full p-3 bg-primary text-white rounded-lg hover:bg-secondary transition duration-300;
+  }
