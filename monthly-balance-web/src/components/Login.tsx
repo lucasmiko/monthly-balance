@@ -1,30 +1,31 @@
 // Login.tsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';  // Importando useNavigate
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Container, TextField, Button, Typography, Box } from '@mui/material';
+import { Container, TextField, Typography, Box } from '@mui/material';
 import loginBackground from '../assets/images/main-bg.jpg';
+import Button from './Button/Button';
+import theme from '../theme';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useAuth();
-  const navigate = useNavigate(); // Usando o hook useNavigate
-
+  const navigate = useNavigate();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await login(email, password);  // Faz o login
-    navigate('/dashboard');  // Redireciona para o dashboard após o login
+    await login(email, password);
+    navigate('/dashboard');
   };
 
   return (
+
     <Box
       sx={{
-        backgroundImage: `url(${loginBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundColor:'rgba(34, 149, 159, 0.3)',
+        padding: theme.spacing(3),
         width: '100vw',
-        minHeight: '100vh',
+        height: '100vh',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -64,13 +65,7 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              fullWidth
-              sx={{ mt: 2 }}
-            >
+            <Button variant="contained" tailwindClass="bg-primary hover:bg-accent" type="submit">
               Sign In
             </Button>
           </form>

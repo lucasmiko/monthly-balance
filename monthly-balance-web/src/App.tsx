@@ -10,10 +10,8 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          {/* Rota pública */}
           <Route path="/login" element={<Login />} />
 
-          {/* Rota protegida */}
           <Route
             path="/dashboard"
             element={<PrivateRoute element={<Dashboard />} />}
